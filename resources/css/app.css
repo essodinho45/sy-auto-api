@@ -80,6 +80,10 @@ select:focus[data-flux-control] {
     @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
 }
 
+.rtl\:translate-x-full:where(:dir(rtl),[dir=rtl],[dir=rtl] *) {
+    --tw-translate-x: 0;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+}
 /* \[:where(&)\]:size-4 {
     @apply size-4;
 } */

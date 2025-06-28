@@ -32,7 +32,7 @@ final class ApiTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return DB::table('api_data');
+        return DB::table('api_data')->whereNot('fcer', 1);
     }
 
     public function fields(): PowerGridFields
@@ -52,31 +52,31 @@ final class ApiTable extends PowerGridComponent
     {
         return [
             Column::make('#', 'id'),
-            Column::make('Rg', 'rg')
+            // Column::make(__('Rg'), 'rg')
+            //     ->sortable()
+            //     ->searchable(),
+
+            Column::make(__('Name'), 'name')
                 ->sortable()
                 ->searchable(),
 
-            Column::make('Name', 'name')
+            Column::make(__('Iok'), 'iok')
                 ->sortable()
                 ->searchable(),
 
-            Column::make('Iok', 'iok')
+            Column::make(__('Ref'), 'ref')
                 ->sortable()
                 ->searchable(),
 
-            Column::make('Ref', 'ref')
+            Column::make(__('Amount'), 'amount')
                 ->sortable()
                 ->searchable(),
 
-            Column::make('Amount', 'amount')
-                ->sortable()
-                ->searchable(),
+            // Column::make(__('Fcer'), 'fcer')
+            //     ->sortable()
+            //     ->searchable(),
 
-            Column::make('Fcer', 'fcer')
-                ->sortable()
-                ->searchable(),
-
-            Column::make('Datecer', 'datecer_formatted', 'datecer')
+            Column::make(__('Datecer'), 'datecer_formatted', 'datecer')
                 ->sortable(),
         ];
     }
